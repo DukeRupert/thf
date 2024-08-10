@@ -1,0 +1,17 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/.vercel_build_output
+/package
+.env
+.env.*
+!.env.example
+.vercel
+
+# Sentry Config File
+.sentryclirc
+
+# Sentry Config File
+.sentryclirc
+.env*.local
