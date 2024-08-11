@@ -1,12 +1,17 @@
 <script lang="ts">
 	import { PUBLIC_DIRECTUS_ENDPOINT } from '$env/static/public';
-	import type { Hero_Data } from '$lib/directus/types/block_hero.ts';
+	import type { Hero_Data } from '$lib/directus/types/block_hero';
+	import type { Site_Settings } from '../types/site_settings';
+	import { directus_image_url } from '../image_utils';
 	import Buttons from './Buttons.svelte';
 	export let data: Hero_Data;
+	export let site_settings: Site_Settings;
 	const { headline, content, buttons, image } = data;
 	const { id, description: alt, height, width } = image;
+	const { logo } = site_settings;
 	const img_src = PUBLIC_DIRECTUS_ENDPOINT + '/assets/' + id;
 	console.log('Render Hero block');
+	console.log(logo);
 </script>
 
 <div class="relative isolate overflow-hidden bg-background">
@@ -41,6 +46,13 @@
 	</svg>
 	<div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
 		<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
+			<img
+				class="h-36 w-36"
+				src={directus_image_url(logo.id, '?w=144')}
+				alt={site_settings.name + 'logo'}
+				height={logo?.height}
+				width={logo?.width}
+			/>
 			<h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
 				{headline}
 			</h1>

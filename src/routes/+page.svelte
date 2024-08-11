@@ -10,4 +10,4 @@
 </script>
 
 <Seo {seo} {site_settings} />
-<Blocks data={blocks} />
+<Blocks data={blocks} {site_settings} />
