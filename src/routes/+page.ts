@@ -7,13 +7,22 @@ export const load = (async () => {
 	const path = '/';
 
 	const res = await client.request(
-		readItems('shcoc_page', {
+		readItems('pages', {
 			filter: {
 				slug: {
 					_eq: path
 				}
 			},
-			fields: ['*', { seo: ['*', { og_image: ['id', 'description', 'height', 'width']}]}, { blocks: ['collection', { item: ['*', 'logos.*', { image: ['id', 'description', 'height', 'width']}] }] }]
+			fields: [
+				'*',
+				{ seo: ['*', { og_image: ['id', 'description', 'height', 'width'] }] },
+				{
+					blocks: [
+						'collection',
+						{ item: ['*', 'logos.*', { image: ['id', 'description', 'height', 'width'] }] }
+					]
+				}
+			]
 		})
 	);
 	if (!res || res.length < 1)

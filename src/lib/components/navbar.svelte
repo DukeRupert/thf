@@ -10,9 +10,8 @@
 	import Lightswitch from './lightswitch.svelte';
 
 	export let site_settings: Site_Settings;
-	const { name, logo, telephone } = site_settings
-	const img_src = PUBLIC_DIRECTUS_ENDPOINT + '/assets/'
-	const streaming_link = site_settings.socials.find((el) => el.name === 'youtube')?.url || ''
+	const { name, logo, telephone } = site_settings;
+	const img_src = PUBLIC_DIRECTUS_ENDPOINT + '/assets/';
 
 	let is_mobile_open = false;
 
@@ -20,7 +19,6 @@
 	$: if ($navigating) {
 		is_mobile_open = false; // Close mobile menu when navigation
 	}
-
 </script>
 
 <header class="absolute inset-x-0 top-0 z-50">
@@ -28,7 +26,14 @@
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5">
 				<span class="sr-only">{SITE_DATA.name}</span>
-				<img width="60" height="60" src={img_src + logo + '?w=40&h=40'} sizes="100vw" alt={name} class="max-w-12 lg:max-w-16 object-contain" />
+				<img
+					width="60"
+					height="60"
+					src={img_src + logo + '?w=40&h=40'}
+					sizes="100vw"
+					alt={name}
+					class="max-w-12 object-contain lg:max-w-16"
+				/>
 			</a>
 		</div>
 
@@ -58,7 +63,7 @@
 								</q>
 							</Sheet.Description>
 						</Sheet.Header>
-						<Separator class="mt-4"/>
+						<Separator class="mt-4" />
 						<div>
 							<div class="space-y-2 py-6">
 								<Button
@@ -78,11 +83,7 @@
 							</div>
 							<Separator />
 							<div class="flex flex-col sm:flex-row sm:space-x-6">
-								{#if streaming_link}
-									<Button variant="default" href={streaming_link} target="_blank" class="w-full mt-4">Watch</Button>
-								{/if}
-								<Button variant="outline" href="/donate" class="w-full mt-4">Donate</Button>
-								
+								<Button variant="outline" href="/donate" class="mt-4 w-full">Donate</Button>
 							</div>
 						</div>
 					</Sheet.Content>

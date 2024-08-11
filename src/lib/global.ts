@@ -43,9 +43,9 @@ export interface Logo {
 }
 
 export const SITE_DATA = {
-	name: 'South Hills Church of Christ',
-	short_name: 'South Hills',
-	slogan: 'Love God, Love Others',
+	name: 'Traver Hardwood Floors',
+	short_name: 'Traver Hardwood',
+	slogan: 'Coming Soon',
 	address: {
 		address_1: '2294 Deerfield Lane',
 		address_2: '',
@@ -60,20 +60,19 @@ export const SITE_DATA = {
 		prefix: 442,
 		number: 8950
 	},
-	email: 'office@southhillscoc.org',
-	url: 'https://southhillscoc.org/',
+	email: 'chris@traverhardwoodfloors.com',
+	url: 'https://traverhardwoodfloors.com/',
 	social: [
-		{ id: 'facebook', url: 'https://www.facebook.com/groups/101145653368' },
-		{ id: 'youtube', url: 'https://www.youtube.com/channel/UC_5VLJi7bGkXK-FdIFkTMKw' }
+		{ id: 'facebook', url: 'https://www.facebook.com/' },
+		{ id: 'youtube', url: 'https://www.youtube.com/' }
 	],
 	routes: [
+		{ id: 'services', url: '/services' },
 		{ id: 'about us', url: '/about-us' },
-		{ id: 'ministries', url: '/ministries' },
-		{ id: 'contact us', url: '/contact-us' },
-		{ id: 'donate', url: '/donate' }
+		{ id: 'contact us', url: '/contact-us' }
 	],
 	logo: {
-		url: "https://res.cloudinary.com/rr-wholesale/image/upload/v1710183597/South%20Hills%20CoC/logo_hdpazk.png",
-		alt: "South Hills Church of Christ logo"
+		url: 'https://cms.thf.fireflysoftware.dev/assets/38806d82-c5b2-4bf6-af25-1349e5a82dea?w=40&h=40',
+		alt: 'Traver Hardwood Floors logo'
 	}
 };

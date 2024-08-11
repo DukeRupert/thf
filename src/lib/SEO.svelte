@@ -24,7 +24,11 @@
 	export let index = true,
 		openGraph = true;
 	export let schemaOrg = true;
-	export let socials: string[] = site_settings?.socials.map((el) => el.url) || [];
+	export let socials: string[] = [];
+	// site_settings.socials may not exist
+	if (site_settings?.socials && site_settings?.socials !== undefined) {
+		socials = site_settings?.socials.map((el) => el.url);
+	}
 	export let jsonld = {};
 
 	let Ld = {
