@@ -19,7 +19,20 @@ export const load = (async () => {
 				{
 					blocks: [
 						'collection',
-						{ item: ['*', 'logos.*', { image: ['id', 'description', 'height', 'width'] }] }
+						{
+							item: [
+								'*',
+								'logos.*',
+								{
+									features: [
+										'headline',
+										'content',
+										{ image: ['id', 'description', 'height', 'width'] }
+									]
+								},
+								{ image: ['id', 'description', 'height', 'width'] }
+							]
+						}
 					]
 				}
 			]

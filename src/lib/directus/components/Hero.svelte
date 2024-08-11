@@ -10,8 +10,6 @@
 	const { id, description: alt, height, width } = image;
 	const { logo } = site_settings;
 	const img_src = PUBLIC_DIRECTUS_ENDPOINT + '/assets/' + id;
-	console.log('Render Hero block');
-	console.log(logo);
 </script>
 
 <div class="relative isolate overflow-hidden bg-background">
@@ -53,10 +51,12 @@
 				height={logo?.height}
 				width={logo?.width}
 			/>
-			<h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+			<h1
+				class="mt-10 text-4xl font-bold tracking-tight text-foreground dark:text-white sm:text-6xl"
+			>
 				{headline}
 			</h1>
-			<div class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">{@html content}</div>
+			<div class="mt-6 text-lg leading-8 text-muted-foreground">{@html content}</div>
 			<div class="mt-10 flex items-center gap-x-6">
 				{#if buttons && buttons.length > 0}
 					<Buttons data={buttons} />

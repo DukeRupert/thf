@@ -6,7 +6,6 @@
 	const { headline, content, buttons, image } = data;
 	const { id, description: alt, height, width } = image;
 	const img_src = PUBLIC_DIRECTUS_ENDPOINT + '/assets/' + id;
-	console.log('Render Hero block');
 </script>
 
 <div class="relative isolate pt-14">
