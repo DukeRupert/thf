@@ -34,7 +34,7 @@
 						>
 							<div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
 								<img
-									src={directus_image_url(feature.image.id)}
+									src={directus_image_url(feature.image.id, '?format=auto')}
 									alt={feature.image.description}
 									class="object-cover object-center"
 									height={feature.image.height}
@@ -56,7 +56,7 @@
 						<div class="flex-auto lg:col-span-7 lg:col-start-1 lg:row-start-1 xl:col-span-8">
 							<div class="aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100">
 								<img
-									src={directus_image_url(feature.image.id)}
+									src={directus_image_url(feature.image.id, '?format=auto')}
 									alt={feature.image.description}
 									class="object-cover object-center"
 									height={feature.image.height}

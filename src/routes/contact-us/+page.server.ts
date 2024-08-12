@@ -13,7 +13,7 @@ export const load: PageServerLoad = async () => {
 	// Fetch cms content
 	const path = '/contact-us';
 	const res = await client.request(
-		readItems('shcoc_page', {
+		readItems('pages', {
 			filter: {
 				slug: {
 					_eq: path
@@ -22,7 +22,11 @@ export const load: PageServerLoad = async () => {
 					_eq: 'published'
 				}
 			},
-			fields: ['*', { seo: ['*', { og_image: ['id', 'description', 'height', 'width']}]}, { blocks: ['collection', { item: ['*'] }] }]
+			fields: [
+				'*',
+				{ seo: ['*', { og_image: ['id', 'description', 'height', 'width'] }] },
+				{ blocks: ['collection', { item: ['*'] }] }
+			]
 		})
 	);
 	if (!res || res.length < 1)
@@ -35,7 +39,7 @@ export const load: PageServerLoad = async () => {
 };
 
 export const actions: Actions = {
-	default: async ( event) => {
+	default: async (event) => {
 		const form = await superValidate(event, zod(formSchema));
 		console.log('POST', form);
 
@@ -47,7 +51,7 @@ export const actions: Actions = {
 
 		// Todo: Honeypot
 		if (form.data.password !== '' || form.data.username !== '') {
-			return message(form, { type: 'error', text: "Nice try bot" });
+			return message(form, { type: 'error', text: 'Nice try bot' });
 		}
 
 		// Send email
@@ -56,15 +60,15 @@ export const actions: Actions = {
 			body: JSON.stringify({
 				name: form.data.name,
 				email: form.data.email,
-				tel: form.data?.tel ?? "",
+				tel: form.data?.tel ?? '',
 				message: form.data.message
 			})
 		});
 
-		if(notify.ok) {
+		if (notify.ok) {
 			throw redirect(301, '/success');
 		}
 
-		return message(form, { type: 'error', text: notify.statusText})
+		return message(form, { type: 'error', text: notify.statusText });
 	}
 };

@@ -6,16 +6,20 @@ import { error } from '@sveltejs/kit';
 export const load = (async ({ url }) => {
 	const { pathname } = url;
 	const res = await client.request(
-		readItems('shcoc_page', {
+		readItems('pages', {
 			filter: {
 				slug: {
 					_eq: pathname
 				},
-                status: {
-                    _eq: 'published'
-                }
+				status: {
+					_eq: 'published'
+				}
 			},
-			fields: ['*', { seo: ['*', { og_image: ['id', 'description', 'height', 'width']}]}, { blocks: ['collection', { item: ['*', 'logos.*', 'image.*', 'members.*'] }] }]
+			fields: [
+				'*',
+				{ seo: ['*', { og_image: ['id', 'description', 'height', 'width'] }] },
+				{ blocks: ['collection', { item: ['*', 'logos.*', 'image.*', 'members.*'] }] }
+			]
 		})
 	);
 	if (!res || res.length < 1)

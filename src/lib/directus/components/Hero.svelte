@@ -46,7 +46,7 @@
 		<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
 			<img
 				class="w-36"
-				src={directus_image_url(logo.id, '?w=144')}
+				src={directus_image_url(logo.id, '?format=auto')}
 				alt={site_settings.name + 'logo'}
 				height={logo?.height}
 				width={logo?.width}
@@ -72,7 +72,7 @@
 				>
 					<img
 						class="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10"
-						src={img_src}
+						src={directus_image_url(image.id, '?format=auto')}
 						srcset="{img_src + '?width=320'} 320w, {img_src + '?width=480'} 480w, {img_src +
 							'?width=800'} 800w, {img_src + '?width=1200'} 1200w,{img_src +
 							'?width=1600'} 1600w, {img_src + '?width=2000'} 2000w"
