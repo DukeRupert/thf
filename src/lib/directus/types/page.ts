@@ -6,6 +6,7 @@ import type { Block_Logo_Cloud } from './block_logo_cloud';
 import type { Block_Richtext } from './block_richtext';
 import type { Block_Team } from './block_team';
 import type { Block_Features } from './block_features';
+import type { Block_Services } from './block_services';
 
 export interface Page {
 	id: string;
@@ -30,4 +31,5 @@ export type Block =
 	| Block_Logo_Cloud
 	| Block_Richtext
 	| Block_Team
-	| Block_Features;
+	| Block_Features
+	| Block_Services;
