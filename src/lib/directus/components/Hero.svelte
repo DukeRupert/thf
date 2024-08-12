@@ -56,7 +56,7 @@
 			>
 				{headline}
 			</h1>
-			<div class="mt-6 text-lg leading-8 text-muted-foreground">{@html content}</div>
+			<div class="mt-6 text-lg leading-8 text-muted-foreground">{content}</div>
 			<div class="mt-10 flex items-center gap-x-6">
 				{#if buttons && buttons.length > 0}
 					<Buttons data={buttons} />
