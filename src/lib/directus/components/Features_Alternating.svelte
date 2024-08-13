@@ -39,6 +39,7 @@
 									class="object-cover object-center"
 									height={feature.image.height}
 									width={feature.image.height}
+									loading="lazy"
 								/>
 							</div>
 						</div>
@@ -61,6 +62,7 @@
 									class="object-cover object-center"
 									height={feature.image.height}
 									width={feature.image.height}
+									loading="lazy"
 								/>
 							</div>
 						</div>

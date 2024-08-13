@@ -31,6 +31,7 @@
 									class="h-10 w-10 rounded-full bg-gray-50"
 									src={directus_image_url(review.image.id, '?h=40&w=40&format=auto')}
 									alt={review?.image?.description ?? review.name}
+									loading="lazy"
 								/>
 								<div>
 									<div class="font-semibold text-foreground">{review.name}</div>

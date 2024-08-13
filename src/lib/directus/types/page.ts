@@ -8,6 +8,7 @@ import type { Block_Team } from './block_team';
 import type { Block_Features } from './block_features';
 import type { Block_Services } from './block_services';
 import type { Block_Reviews } from './block_reviews';
+import type { Block_Call_To_Action } from './block_call_to_action';
 
 export interface Page {
 	id: string;
@@ -34,4 +35,5 @@ export type Block =
 	| Block_Team
 	| Block_Features
 	| Block_Services
-	| Block_Reviews;
+	| Block_Reviews
+	| Block_Call_To_Action;

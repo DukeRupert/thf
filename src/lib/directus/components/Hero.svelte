@@ -3,7 +3,7 @@
 	import type { Hero_Data } from '$lib/directus/types/block_hero';
 	import type { Site_Settings } from '../types/site_settings';
 	import { directus_image_url } from '../image_utils';
-	import Buttons from './Buttons.svelte';
+	import Button from './Button.svelte';
 	export let data: Hero_Data;
 	export let site_settings: Site_Settings;
 	const { headline, content, buttons, image } = data;
@@ -50,6 +50,7 @@
 				alt={site_settings.name + 'logo'}
 				height={logo?.height}
 				width={logo?.width}
+				loading="eager"
 			/>
 			<h1
 				class="mt-10 text-4xl font-bold tracking-tight text-foreground dark:text-white sm:text-6xl"
@@ -59,7 +60,9 @@
 			<div class="mt-6 text-lg leading-8 text-muted-foreground">{content}</div>
 			<div class="mt-10 flex items-center gap-x-6">
 				{#if buttons && buttons.length > 0}
-					<Buttons data={buttons} />
+					{#each buttons as { label, variant, href }}
+						<Button {label} {href} {variant} />
+					{/each}
 				{/if}
 			</div>
 		</div>
@@ -84,6 +87,7 @@
 						alt={alt || 'Fixme'}
 						{width}
 						{height}
+						loading="eager"
 					/>
 				</div>
 			</div>
