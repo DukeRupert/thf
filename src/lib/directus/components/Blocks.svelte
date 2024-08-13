@@ -8,6 +8,7 @@
 	import Team from './Team.svelte';
 	import FeaturesAlternating from './Features_Alternating.svelte';
 	import Services from './Services.svelte';
+	import Reviews from './Reviews_Grid.svelte';
 
 	export let data: Block[];
 	export let site_settings: Site_Settings;
@@ -20,6 +21,8 @@
 		<FeaturesAlternating data={block.item} />
 	{:else if block.collection === 'block_services'}
 		<Services data={block.item} />
+	{:else if block.collection === 'block_reviews'}
+		<Reviews data={block.item} />
 	{:else if block.collection === 'block_feature_grid_2x2'}
 		<FeatureGrid data={block.item} />
 	{:else if block.collection === 'block_logo_cloud'}

@@ -30,6 +30,15 @@ export const load = (async () => {
 										{ image: ['id', 'description', 'height', 'width'] }
 									]
 								},
+								{
+									reviews: [
+										'id',
+										'name',
+										'title',
+										'quote',
+										{ image: ['id', 'description', 'height', 'width'] }
+									]
+								},
 								{ image: ['id', 'description', 'height', 'width'] }
 							]
 						}
