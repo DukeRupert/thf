@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Site_Settings } from '$lib/directus/types/site_settings';
-	import { PUBLIC_DIRECTUS_ENDPOINT } from '$env/static/public';
+	import type { Quotes } from '$lib/global';
 	import { SITE_DATA } from '$lib/global';
 	import { navigating, page } from '$app/stores';
 	import { MenuIcon } from 'lucide-svelte';
@@ -8,16 +8,29 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import Lightswitch from './lightswitch.svelte';
+	import { directus_image_url } from '$lib/directus/image_utils';
 
+	export let quotes: Quotes;
+	console.log(quotes);
 	export let site_settings: Site_Settings;
 	const { name, logo, telephone } = site_settings;
-	const img_src = PUBLIC_DIRECTUS_ENDPOINT + '/assets/';
 
 	let is_mobile_open = false;
-
-	// Reactive functions
+	// Close mobile menu when navigation
 	$: if ($navigating) {
-		is_mobile_open = false; // Close mobile menu when navigation
+		is_mobile_open = false;
+	}
+
+	function getRandomInt(min: number, max: number) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	let active_quote = getRandomInt(0, quotes.length);
+	// Change the quote each time the mobile menu is opened
+	$: if (is_mobile_open) {
+		active_quote = getRandomInt(0, quotes.length);
 	}
 </script>
 
@@ -27,14 +40,16 @@
 			{#if $page.url.pathname !== '/'}
 				<a href="/" class="-m-1.5 p-1.5">
 					<span class="sr-only">{SITE_DATA.name}</span>
-					<img
-						width="60"
-						height="60"
-						src={img_src + logo + '?w=40&h=40'}
-						sizes="100vw"
-						alt={name}
-						class="max-w-12 object-contain lg:max-w-16"
-					/>
+					{#if logo}
+						<img
+							width={logo?.width}
+							height={logo?.height}
+							src={directus_image_url(logo.id, '?w=40&h=40&format=auto')}
+							sizes="100vw"
+							alt={name}
+							class="max-w-16 object-contain lg:max-w-24"
+						/>
+					{/if}
 				</a>
 			{/if}
 		</div>
@@ -59,10 +74,10 @@
 						<Sheet.Header>
 							<Sheet.Title>Navigation</Sheet.Title>
 							<Sheet.Description>
-								<q>
-									Ask and it’s given to you, search and you’ll find, knock and the door will open. ~
-									Matthew 7:7
-								</q>
+								<blockquote class="text-muted-foreground">
+									&ldquo;{quotes[active_quote].q}&rdquo; &mdash;
+									<footer class="text-muted-foreground">{quotes[active_quote].a}</footer>
+								</blockquote>
 							</Sheet.Description>
 						</Sheet.Header>
 						<Separator class="mt-4" />
@@ -85,7 +100,10 @@
 							</div>
 							<Separator />
 							<div class="flex flex-col sm:flex-row sm:space-x-6">
-								<Button variant="outline" href="/donate" class="mt-4 w-full">Donate</Button>
+								<Button variant="default" href={'tel:+1' + telephone} class="mt-4 w-full"
+									>Call us</Button
+								>
+								<Button variant="outline" href="/contact-us" class="mt-4 w-full">Contact us</Button>
 							</div>
 						</div>
 					</Sheet.Content>

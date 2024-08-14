@@ -76,3 +76,11 @@ export const SITE_DATA = {
 		alt: 'Traver Hardwood Floors logo'
 	}
 };
+export type Quotes = Quote[];
+
+export interface Quote {
+	q: string;
+	a: string;
+	c: string;
+	h: string;
+}
