@@ -9,14 +9,11 @@ export const load = (async ({ fetch }) => {
 			fields: ['*', { logo: ['id', 'description', 'height', 'width'] }]
 		})
 	);
-	async function fetch_quote() {
-		console.log('fetch quote');
-		const response = await fetch('/api/quotes');
-		const data = (await response.json()) as Quotes;
-		return data;
-	}
+
+	const quotes = await fetch('/api/quotes');
+
 	return {
 		site_settings: res,
-		quotes: await fetch_quote()
+		quotes: await quotes.json()
 	};
 }) satisfies LayoutLoad;
