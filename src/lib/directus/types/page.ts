@@ -9,21 +9,20 @@ import type { Block_Features } from './block_features';
 import type { Block_Services } from './block_services';
 import type { Block_Reviews } from './block_reviews';
 import type { Block_Call_To_Action } from './block_call_to_action';
+import type { Block_Page_Header } from './block_page_header';
 
 export interface Page {
 	id: string;
 	status: string;
-	sort: null | string;
-	user_created: null | string;
-	date_created: null | string;
-	user_updated: null | string;
-	date_updated: null | string;
-	eyebrow?: string;
+	sort: any;
+	user_created: string;
+	date_created: string;
+	user_updated: string;
+	date_updated: string;
 	title: string;
-	description?: string;
 	slug: string;
-	seo: Seo;
 	blocks: Block[];
+	seo: Seo;
 }
 
 export type Block =
@@ -36,4 +35,5 @@ export type Block =
 	| Block_Features
 	| Block_Services
 	| Block_Reviews
-	| Block_Call_To_Action;
+	| Block_Call_To_Action
+	| Block_Page_Header;

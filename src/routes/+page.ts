@@ -4,13 +4,13 @@ import { readItems } from '@directus/sdk';
 import { error } from '@sveltejs/kit';
 
 export const load = (async () => {
-	const path = '/';
+	const pathname = '/';
 
 	const res = await client.request(
 		readItems('pages', {
 			filter: {
 				slug: {
-					_eq: path
+					_eq: pathname
 				}
 			},
 			fields: [
@@ -48,7 +48,7 @@ export const load = (async () => {
 		})
 	);
 	if (!res || res.length < 1)
-		throw error(404, { message: `Page with the following slug was found:  [ ${path} ]` });
+		throw error(404, { message: `Page with the following slug was found:  [ ${pathname} ]` });
 	const page = res[0];
 	return {
 		page
