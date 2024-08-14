@@ -4,8 +4,6 @@
 
 	export let data: Item;
 	const { headline, description, features } = data;
-	console.log('Render Alternating Features block');
-	console.log(data);
 </script>
 
 <div class="bg-background">

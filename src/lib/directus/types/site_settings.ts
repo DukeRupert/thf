@@ -5,17 +5,17 @@ export interface Site_Settings {
 	date_created: string;
 	user_updated: string;
 	date_updated: string;
-	name: string;
+	name?: string;
 	logo?: Logo;
 	schema_type: string;
-	description: string;
-	email: string;
-	telephone: string;
-	street_address: string;
-	city: string;
-	state: string;
-	postal_code: string;
-	socials: Social[];
+	description?: string;
+	email?: string;
+	telephone?: string;
+	street_address?: string;
+	city?: string;
+	state?: string;
+	postal_code?: string;
+	socials?: Social[];
 	logo_full?: string;
 }
 

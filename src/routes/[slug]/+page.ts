@@ -48,7 +48,9 @@ export const load = (async ({ url }) => {
 		})
 	);
 	if (!res || res.length < 1)
-		throw error(404, { message: `Page with the following slug was found:  [ ${pathname} ]` });
+		throw error(404, {
+			message: `Not found. No page with this slug was not found:  [ ${pathname} ]`
+		});
 	const page = res[0];
 	return {
 		page

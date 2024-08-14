@@ -16,4 +16,4 @@
 <main class="min-h-screen">
 	<slot />
 </main>
-<Footer />
+<Footer {site_settings} />

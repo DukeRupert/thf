@@ -4,7 +4,6 @@
 
 	export let data: Item;
 	const { headline, description, services } = data;
-	console.log('Render block_services componenet');
 </script>
 
 <div class="bg-background py-24 sm:py-32">

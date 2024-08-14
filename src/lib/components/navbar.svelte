@@ -11,7 +11,6 @@
 	import { directus_image_url } from '$lib/directus/image_utils';
 
 	export let quotes: Quotes;
-	console.log(quotes);
 	export let site_settings: Site_Settings;
 	const { name, logo, telephone } = site_settings;
 
@@ -45,7 +44,6 @@
 							width={logo?.width}
 							height={logo?.height}
 							src={directus_image_url(logo.id, '?w=40&h=40&format=auto')}
-							sizes="100vw"
 							alt={name}
 							class="max-w-16 object-contain lg:max-w-24"
 						/>
