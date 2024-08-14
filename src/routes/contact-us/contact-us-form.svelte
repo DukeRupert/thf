@@ -16,12 +16,13 @@
 				// Display the message using a toast library
 				switch (form.message.type) {
 					case 'error':
-						toast.error(form.message.text)			
+						toast.error(form.message.text);
 						break;
 					case 'success':
-						toast.success(form.message.text)
+						toast.success(form.message.text);
+						break;
 					default:
-						toast.info(form.message.text)
+						toast.info(form.message.text);
 				}
 			}
 		}
@@ -30,59 +31,61 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<form class="mx-auto mt-16 max-w-xl sm:mt-20" method="POST" use:enhance>
-	<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-		<div class="sm:col-span-2">
-			<Form.Field {form} name="name">
-				<Form.Control let:attrs>
-					<Form.Label>Name</Form.Label>
-					<Input {...attrs} bind:value={$formData.name} />
-				</Form.Control>
-				<Form.FieldErrors />
-			</Form.Field>
+<div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+	<form class="mx-auto mt-16 max-w-xl sm:mt-20" method="POST" use:enhance>
+		<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+			<div class="sm:col-span-2">
+				<Form.Field {form} name="name">
+					<Form.Control let:attrs>
+						<Form.Label>Name</Form.Label>
+						<Input {...attrs} bind:value={$formData.name} />
+					</Form.Control>
+					<Form.FieldErrors />
+				</Form.Field>
+			</div>
+			<div class="sm:col-span-2">
+				<Form.Field {form} name="email">
+					<Form.Control let:attrs>
+						<Form.Label>Email</Form.Label>
+						<Input {...attrs} bind:value={$formData.email} />
+					</Form.Control>
+					<Form.FieldErrors />
+				</Form.Field>
+			</div>
+			<div class="sm:col-span-2">
+				<Form.Field {form} name="tel">
+					<Form.Control let:attrs>
+						<Form.Label>Phone</Form.Label>
+						<Input {...attrs} bind:value={$formData.tel} placeholder="optional" />
+					</Form.Control>
+					<Form.FieldErrors />
+				</Form.Field>
+			</div>
+			<div class="hidden sm:col-span-2">
+				<label for="password">password</label>
+				<input name="password" type="password" />
+			</div>
+			<div class="hidden sm:col-span-2">
+				<label for="username">username</label>
+				<input name="username" type="text" />
+			</div>
+			<div class="sm:col-span-2">
+				<Form.Field {form} name="message">
+					<Form.Control let:attrs>
+						<Form.Label>Message</Form.Label>
+						<Textarea
+							{...attrs}
+							placeholder="What can we do for you?"
+							class="resize-none"
+							bind:value={$formData.message}
+						/>
+					</Form.Control>
+					<Form.FieldErrors />
+				</Form.Field>
+			</div>
+			<div class="mt-10">
+				<Form.Button class="w-full">Submit</Form.Button>
+			</div>
 		</div>
-		<div class="sm:col-span-2">
-			<Form.Field {form} name="email">
-				<Form.Control let:attrs>
-					<Form.Label>Email</Form.Label>
-					<Input {...attrs} bind:value={$formData.email} />
-				</Form.Control>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-		<div class="sm:col-span-2">
-			<Form.Field {form} name="tel">
-				<Form.Control let:attrs>
-					<Form.Label>Phone</Form.Label>
-					<Input {...attrs} bind:value={$formData.tel} placeholder="optional" />
-				</Form.Control>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-		<div class="sm:col-span-2 hidden">
-			<label for="password">password</label>
-			<input name="password" type="password" />
-		</div>
-		<div class="sm:col-span-2 hidden">
-			<label for="username">username</label>
-			<input name="username" type="text" />
-		</div>
-		<div class="sm:col-span-2">
-			<Form.Field {form} name="message">
-				<Form.Control let:attrs>
-					<Form.Label>Message</Form.Label>
-					<Textarea
-						{...attrs}
-						placeholder="What can we do for you?"
-						class="resize-none"
-						bind:value={$formData.message}
-					/>
-				</Form.Control>
-				<Form.FieldErrors />
-			</Form.Field>
-		</div>
-		<div class="mt-10">
-			<Form.Button class="w-full">Submit</Form.Button>
-		</div>
-	</div>
-</form>
+	</form>
+</div>

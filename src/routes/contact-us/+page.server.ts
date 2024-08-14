@@ -6,35 +6,61 @@ import { zod } from 'sveltekit-superforms/adapters';
 import client from '$lib/directus/client';
 import { readItems } from '@directus/sdk';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ url }) => {
 	// Server API for contact form:
 	const form = await superValidate(zod(formSchema));
 
 	// Fetch cms content
-	const path = '/contact-us';
+	const { pathname } = url;
 	const res = await client.request(
 		readItems('pages', {
 			filter: {
 				slug: {
-					_eq: path
-				},
-				status: {
-					_eq: 'published'
+					_eq: pathname
 				}
 			},
 			fields: [
 				'*',
 				{ seo: ['*', { og_image: ['id', 'description', 'height', 'width'] }] },
-				{ blocks: ['collection', { item: ['*'] }] }
+				{
+					blocks: [
+						'collection',
+						{
+							item: [
+								'*',
+								'logos.*',
+								{
+									features: [
+										'headline',
+										'content',
+										{ image: ['id', 'description', 'height', 'width'] }
+									]
+								},
+								{
+									reviews: [
+										'id',
+										'name',
+										'title',
+										'quote',
+										{ image: ['id', 'description', 'height', 'width'] }
+									]
+								},
+								{ image: ['id', 'description', 'height', 'width'] }
+							]
+						}
+					]
+				}
 			]
 		})
 	);
 	if (!res || res.length < 1)
-		throw error(404, { message: `Page with the following slug was not found:  [ ${path} ]` });
+		throw error(404, {
+			message: `Not found. No page with this slug was not found:  [ ${pathname} ]`
+		});
 	const page = res[0];
 	return {
-		form,
-		page
+		page,
+		form
 	};
 };
 
@@ -49,11 +75,6 @@ export const actions: Actions = {
 			return fail(400, { form });
 		}
 
-		// Todo: Honeypot
-		if (form.data.password !== '' || form.data.username !== '') {
-			return message(form, { type: 'error', text: 'Nice try bot' });
-		}
-
 		// Send email
 		const notify = await event.fetch('/api/postmark', {
 			method: 'POST',
@@ -65,7 +86,10 @@ export const actions: Actions = {
 			})
 		});
 
+		console.log(notify);
+
 		if (notify.ok) {
+			console.log(notify);
 			throw redirect(301, '/success');
 		}
 

@@ -9,8 +9,8 @@ const to = POSTMARK_TO;
 
 export const POST: RequestHandler = async ({ request }) => {
 	const data = await request.json();
-	const org_name = 'South Hills Church of Christ';
-	const site_name = 'southhillscoc.org';
+	const org_name = 'Traver Hardwood Floors';
+	const site_name = 'traverhardwoodfloors.com';
 	const timestamp = new Date();
 	const date = timestamp.toLocaleDateString('en-US');
 	const model = { ...data, org_name, site_name, date };
@@ -26,7 +26,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	});
 
 	// Handle error
-	if (res.ErrorCode == 0) {
+	if (res.ErrorCode !== 0) {
 		// let me know
 		await client.sendEmail({
 			From: from,
@@ -35,7 +35,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			TextBody: JSON.stringify(res)
 		});
 		// let application know
-        throw error(501, { message: 'Something went wrong. Please try calling us instead.'})
+		throw error(501, { message: 'Something went wrong. Please try calling us instead.' });
 	}
 	return json({ success: true });
 };
