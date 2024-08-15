@@ -39,6 +39,9 @@ export const load = (async ({ url }) => {
 										{ image: ['id', 'description', 'height', 'width'] }
 									]
 								},
+								{
+									gallery: ['caption', { image: ['id', 'description', 'height', 'width'] }]
+								},
 								{ image: ['id', 'description', 'height', 'width'] }
 							]
 						}
