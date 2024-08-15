@@ -72,7 +72,7 @@
 			<div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
 				<div class="rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
 					<img
-						class="h-[56rem] w-full rounded-md object-right shadow-2xl ring-1 ring-gray-900/10"
+						class="h-full w-[48rem] rounded-md object-right shadow-2xl ring-1 ring-gray-900/10"
 						src={directus_image_url(image.id, '?format=auto')}
 						srcset="{img_src + '?width=320'} 320w, {img_src + '?width=480'} 480w, {img_src +
 							'?width=800'} 800w, {img_src + '?width=1200'} 1200w,{img_src +

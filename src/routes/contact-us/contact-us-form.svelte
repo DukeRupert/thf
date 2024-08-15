@@ -32,7 +32,7 @@
 </script>
 
 <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
-	<form class="mx-auto mt-16 max-w-xl sm:mt-20" method="POST" use:enhance>
+	<form class="mx-auto mt-16 w-full max-w-xl sm:mt-20" method="POST" use:enhance>
 		<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 			<div class="sm:col-span-2">
 				<Form.Field {form} name="name">

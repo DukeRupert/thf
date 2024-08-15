@@ -7,6 +7,7 @@
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import { Button } from '$lib/components/ui/button';
 	import * as Sheet from '$lib/components/ui/sheet';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import Lightswitch from './lightswitch.svelte';
 	import { directus_image_url } from '$lib/directus/image_utils';
 
@@ -53,9 +54,56 @@
 		</div>
 
 		<div class="hidden lg:flex lg:gap-x-12">
-			{#each SITE_DATA.routes as { id, url }}
-				<Button href={url} variant="link" class="capitalize">{id}</Button>
-			{/each}
+			<DropdownMenu.Root>
+				<DropdownMenu.Trigger
+					><Button variant="link" class="capitalize text-primary-foreground dark:text-primary"
+						>Services</Button
+					></DropdownMenu.Trigger
+				>
+				<DropdownMenu.Content>
+					<DropdownMenu.Group>
+						<DropdownMenu.Item
+							><Button
+								href="/installation"
+								variant="link"
+								class="capitalize text-primary-foreground dark:text-primary">Installation</Button
+							></DropdownMenu.Item
+						>
+						<DropdownMenu.Item
+							><Button
+								href="/sanding-and-finishing"
+								variant="link"
+								class="capitalize text-primary-foreground dark:text-primary"
+								>Sanding & Finishing</Button
+							></DropdownMenu.Item
+						>
+						<DropdownMenu.Item
+							><Button
+								href="/repair-and-restoration"
+								variant="link"
+								class="capitalize text-primary-foreground dark:text-primary"
+								>Repair & Restoration</Button
+							></DropdownMenu.Item
+						>
+						<DropdownMenu.Item
+							><Button
+								href="/stairs"
+								variant="link"
+								class="capitalize text-primary-foreground dark:text-primary">Stairs</Button
+							></DropdownMenu.Item
+						>
+					</DropdownMenu.Group>
+				</DropdownMenu.Content>
+			</DropdownMenu.Root>
+			<Button
+				href="/about-us"
+				variant="link"
+				class="capitalize text-primary-foreground dark:text-primary">About us</Button
+			><Button
+				href="/contact-us"
+				variant="link"
+				class="capitalize text-primary-foreground dark:text-primary">Contact us</Button
+			>
 		</div>
 		<div class="flex space-x-4 lg:flex lg:flex-1 lg:justify-end">
 			<Lightswitch />
