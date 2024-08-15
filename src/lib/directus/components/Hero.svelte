@@ -70,11 +70,9 @@
 			class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32"
 		>
 			<div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-				<div
-					class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
-				>
+				<div class="rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
 					<img
-						class="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10"
+						class="h-[56rem] w-full rounded-md object-right shadow-2xl ring-1 ring-gray-900/10"
 						src={directus_image_url(image.id, '?format=auto')}
 						srcset="{img_src + '?width=320'} 320w, {img_src + '?width=480'} 480w, {img_src +
 							'?width=800'} 800w, {img_src + '?width=1200'} 1200w,{img_src +

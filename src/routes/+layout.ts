@@ -1,5 +1,4 @@
 import type { LayoutLoad } from './$types';
-import type { Quotes } from '$lib/global';
 import client from '$lib/directus/client';
 import { readSingleton } from '@directus/sdk';
 
