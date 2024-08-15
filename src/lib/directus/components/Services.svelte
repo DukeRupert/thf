@@ -38,9 +38,9 @@
 								<Button
 									variant="link"
 									href={service.action_url}
-									class="text-sm font-semibold leading-6 transition-all duration-100 ease-out hover:translate-x-2"
-									>{service.action_label} <span aria-hidden="true">→</span></Button
-								>
+									class="text-sm font-semibold leading-6 text-primary-foreground transition-all duration-100 ease-out hover:translate-x-2 dark:text-primary"
+									>{service.action_label}
+								</Button>
 							</p>
 						</dd>
 					</div>

@@ -9,7 +9,9 @@
 <div class="bg-background py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-xl text-center">
-			<h2 class="text-lg font-semibold leading-8 tracking-tight text-primary">
+			<h2
+				class="text-lg font-semibold leading-8 tracking-tight text-primary-foreground dark:text-primary"
+			>
 				{eyebrow ?? 'Reviews'}
 			</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

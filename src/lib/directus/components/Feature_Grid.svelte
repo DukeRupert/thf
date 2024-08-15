@@ -39,7 +39,9 @@
 							{description}
 						</dd>
 						{#if button_label && button_href}
-							<Button variant="link" href={button_href} class="mt-4 pl-0">{button_label}</Button>
+							<Button variant="secondary" href={button_href} class="mt-4 pl-0"
+								>{button_label}</Button
+							>
 						{/if}
 					</div>
 				{/each}

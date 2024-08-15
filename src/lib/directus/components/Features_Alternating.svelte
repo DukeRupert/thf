@@ -34,7 +34,7 @@
 								<img
 									src={directus_image_url(feature.image.id, '?format=auto')}
 									alt={feature.image.description}
-									class="object-cover object-center"
+									class="object-cover object-bottom"
 									height={feature.image.height}
 									width={feature.image.height}
 									loading="lazy"
