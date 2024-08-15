@@ -6,7 +6,7 @@
 	export let data: PageData;
 	const { site_settings, page } = data;
 	const { seo, blocks } = page;
-	console.log(blocks);
+	console.log(page);
 </script>
 
 <Seo {seo} />

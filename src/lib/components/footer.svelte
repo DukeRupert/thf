@@ -7,7 +7,6 @@
 	import { directus_image_url } from '$lib/directus/image_utils';
 
 	export let site_settings: Site_Settings;
-	console.log(site_settings);
 	const { name, logo, socials, telephone } = site_settings;
 	let current_date = new Date();
 </script>
@@ -109,11 +108,6 @@
 								<a
 									href="/about-us"
 									class="text-sm leading-6 text-muted-foreground hover:text-foreground">About us</a
-								>
-							</li>
-							<li>
-								<a href="#" class="text-sm leading-6 text-muted-foreground hover:text-foreground"
-									>Blog</a
 								>
 							</li>
 						</ul>

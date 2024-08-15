@@ -87,14 +87,36 @@
 									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7"
 									>Home</Button
 								>
-								{#each SITE_DATA.routes as { id, url }}
-									<Button
-										href={url}
-										variant="link"
-										class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
-										>{id}</Button
-									>
-								{/each}
+								<Button
+									href="/installation"
+									variant="link"
+									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
+									>Installation</Button
+								>
+								<Button
+									href="/installation"
+									variant="link"
+									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
+									>Sanding & Finishing</Button
+								>
+								<Button
+									href="/installation"
+									variant="link"
+									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
+									>Repair & Restoration</Button
+								>
+								<Button
+									href="/installation"
+									variant="link"
+									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
+									>Stairs</Button
+								>
+								<Button
+									href="/about-us"
+									variant="link"
+									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
+									>About us</Button
+								>
 							</div>
 							<Separator />
 							<div class="flex flex-col sm:flex-row sm:space-x-6">

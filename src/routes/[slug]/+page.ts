@@ -49,9 +49,13 @@ export const load = (async ({ url }) => {
 	);
 	if (!res || res.length < 1)
 		throw error(404, {
-			message: `Not found. No page with this slug was not found:  [ ${pathname} ]`
+			message: `Not found. No page with this slug was not found: ${pathname}`
 		});
 	const page = res[0];
+	if (!page || page.status !== 'published')
+		throw error(403, {
+			message: 'Not published. This page is still under construction.'
+		});
 	return {
 		page
 	};
