@@ -144,6 +144,7 @@
 						<ul role="list" class="mt-6 space-y-4">
 							<li>
 								<a
+									data-sveltekit-reload
 									href="/about-us"
 									class="text-sm leading-6 text-muted-foreground hover:text-foreground">About us</a
 								>
@@ -154,13 +155,10 @@
 						<h3 class="text-sm font-semibold leading-6 text-foreground">Legal</h3>
 						<ul role="list" class="mt-6 space-y-4">
 							<li>
-								<a href="#" class="text-sm leading-6 text-muted-foreground hover:text-foreground"
-									>Privacy</a
-								>
-							</li>
-							<li>
-								<a href="#" class="text-sm leading-6 text-muted-foreground hover:text-foreground"
-									>Terms</a
+								<a
+									data-sveltekit-reload
+									href="/privacy-policy"
+									class="text-sm leading-6 text-muted-foreground hover:text-foreground">Privacy</a
 								>
 							</li>
 						</ul>
