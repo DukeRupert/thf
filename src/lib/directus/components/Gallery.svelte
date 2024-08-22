@@ -20,20 +20,24 @@
 	{#if headline}
 		<h2 class="my-4 text-2xl">{headline}</h2>
 	{/if}
-	<div
-		id={'headline' + ' gallery'}
-		class="grid grid-flow-dense grid-cols-2 gap-4 gap-4 md:grid-cols-3"
-	>
-		{#each gallery as { caption, image }}
-			<div>
-				<img
-					class="h-auto max-w-full rounded-lg"
-					src={directus_image_url(image.id, '?format=auto')}
-					alt={image?.description ?? 'Traver Hardwood Flooring project'}
-					height={image.height}
-					width={image.width}
-				/>
-			</div>
-		{/each}
+	<div id={'headline' + ' gallery'}>
+		<div class="columns-2 gap-8 md:columns-3">
+			{#each gallery as { caption, image }}
+				<figure class="group relative">
+					<img
+						class="mb-6 w-full group-hover:brightness-50 group-active:brightness-50"
+						src={directus_image_url(image.id, '?format=auto')}
+						alt={image?.description ?? 'Traver Hardwood Flooring project'}
+						height={image.height}
+						width={image.width}
+					/>
+					<figcaption
+						class="invisible absolute left-2 top-2 text-sm text-white group-hover:visible group-active:visible md:text-base"
+					>
+						{caption}
+					</figcaption>
+				</figure>
+			{/each}
+		</div>
 	</div>
 </div>
