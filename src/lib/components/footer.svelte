@@ -1,14 +1,20 @@
 <script lang="ts">
 	import type { Site_Settings } from '$lib/directus/types/site_settings';
+	import { mode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button';
-	import Facebook from 'lucide-svelte/icons/facebook';
-	import Youtube from 'lucide-svelte/icons/youtube';
 	import ExternalLink from 'lucide-svelte/icons/external-link';
 	import { directus_image_url } from '$lib/directus/image_utils';
 
 	export let site_settings: Site_Settings;
 	const { name, logo, socials, telephone } = site_settings;
 	let current_date = new Date();
+
+	const facebook_logo_id_light = '53809945-6f32-4421-868e-f242e3fc10b9';
+	const facebook_logo_id_dark = '85f97d31-c240-4a15-9982-202ff5e8e663';
+	const nextdoor_logo_light = '04eaba94-7638-4751-8d81-4815a21ce09f';
+	const nextdoor_logo_dark = '0ba178ee-428a-434f-bacf-1f34c448b2cc';
+	const instagram_logo_light = '110462c2-780d-42b9-8e55-02ccf29dc776';
+	const instagram_logo_dark = 'd797e57e-967b-443e-92cf-c1257f43b2d9';
 </script>
 
 <footer class="bg-background" aria-labelledby="footer-heading">
@@ -33,16 +39,48 @@
 				<div class="flex space-x-6">
 					{#if socials && socials.length > 0}
 						{#each socials as { name, url }}
-							<Button href={url} size="icon" variant="ghost">
-								<span class="sr-only">{name}</span>
-								{#if name === 'facebook'}
-									<Facebook class="h-5 w-5" />
-								{:else if name === 'youtube'}
-									<Youtube class="h-5 w-5" />
-								{:else}
+							<span class="sr-only">{name}</span>
+							{#if name.toLowerCase() === 'facebook'}
+								<Button href={url} size="icon" variant="ghost">
+									<img
+										src={directus_image_url(
+											$mode === 'light' ? facebook_logo_id_light : facebook_logo_id_dark,
+											'?format=auto&h=32'
+										)}
+										alt="facebook logo"
+										height="32"
+										class="h-8 w-auto"
+									/>
+								</Button>
+							{:else if name.toLowerCase() === 'nextdoor'}
+								<Button href={url} size="default" variant="ghost">
+									<img
+										src={directus_image_url(
+											$mode === 'light' ? nextdoor_logo_light : nextdoor_logo_dark,
+											'?format=auto&h=32'
+										)}
+										alt="nextdoor logo"
+										height="32"
+										class="h-8 w-auto"
+									/>
+								</Button>
+							{:else if name.toLowerCase() === 'instagram'}
+								<Button href={url} size="icon" variant="ghost"
+									><img
+										src={directus_image_url(
+											$mode === 'light' ? instagram_logo_light : instagram_logo_dark,
+											'?format=auto&h=32'
+										)}
+										alt="instagram logo"
+										height="30"
+										class="h-8 w-auto"
+									/>
+								</Button>
+							{:else}
+								<Button href={url} size="icon" variant="ghost">
 									<ExternalLink class="h-5 w-5" />
-								{/if}
-							</Button>
+								</Button>
+							{/if}
 						{/each}
 					{/if}
 				</div>

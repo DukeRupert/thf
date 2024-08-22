@@ -10,6 +10,7 @@ import type { Block_Services } from './block_services';
 import type { Block_Reviews } from './block_reviews';
 import type { Block_Call_To_Action } from './block_call_to_action';
 import type { Block_Page_Header } from './block_page_header';
+import type { Block_Gallery } from '../components/Gallery';
 
 export interface Page {
 	id: string;
@@ -36,4 +37,5 @@ export type Block =
 	| Block_Services
 	| Block_Reviews
 	| Block_Call_To_Action
-	| Block_Page_Header;
+	| Block_Page_Header
+	| Block_Gallery;
