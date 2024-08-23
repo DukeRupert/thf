@@ -46,7 +46,7 @@
 							height={logo?.height}
 							src={directus_image_url(logo.id, '?w=40&h=40&format=auto')}
 							alt={name}
-							class="max-w-16 object-contain lg:max-w-24"
+							class="w-16 object-contain lg:w-24"
 						/>
 					{/if}
 				</a>
@@ -64,6 +64,7 @@
 					<DropdownMenu.Group>
 						<DropdownMenu.Item
 							><Button
+								data-sveltekit-reload
 								href="/installation"
 								variant="link"
 								class="capitalize text-primary-foreground dark:text-primary">Installation</Button
@@ -71,6 +72,7 @@
 						>
 						<DropdownMenu.Item
 							><Button
+								data-sveltekit-reload
 								href="/sanding-and-finishing"
 								variant="link"
 								class="capitalize text-primary-foreground dark:text-primary"
@@ -79,6 +81,7 @@
 						>
 						<DropdownMenu.Item
 							><Button
+								data-sveltekit-reload
 								href="/repair-and-restoration"
 								variant="link"
 								class="capitalize text-primary-foreground dark:text-primary"
@@ -87,6 +90,7 @@
 						>
 						<DropdownMenu.Item
 							><Button
+								data-sveltekit-reload
 								href="/stairs"
 								variant="link"
 								class="capitalize text-primary-foreground dark:text-primary">Stairs</Button
