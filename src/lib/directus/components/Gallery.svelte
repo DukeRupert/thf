@@ -26,7 +26,7 @@
 				<figure class="group relative">
 					<img
 						class="mb-6 w-full group-hover:brightness-50 group-active:brightness-50"
-						src={directus_image_url(image.id, '?format=auto')}
+						src={directus_image_url(image.id, '?height=800&format=auto')}
 						alt={image?.description ?? 'Traver Hardwood Flooring project'}
 						height={image.height}
 						width={image.width}

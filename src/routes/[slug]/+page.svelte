@@ -4,9 +4,8 @@
 	import Blocks from '$lib/directus/components/Blocks.svelte';
 
 	export let data: PageData;
-	const { site_settings, page } = data;
-	const { seo, blocks } = page;
-	console.log(blocks);
+	let { site_settings, page } = data;
+	let { seo, blocks } = page;
 </script>
 
 <Seo {seo} />

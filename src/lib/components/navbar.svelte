@@ -26,7 +26,6 @@
 		max = Math.floor(max);
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
-
 	let active_quote = getRandomInt(0, quotes.length);
 	// Change the quote each time the mobile menu is opened
 	$: if (is_mobile_open) {
@@ -140,30 +139,35 @@
 									>Home</Button
 								>
 								<Button
+									data-sveltekit-reload
 									href="/installation"
 									variant="link"
 									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
 									>Installation</Button
 								>
 								<Button
-									href="/installation"
+									data-sveltekit-reload
+									href="/sanding-and-finishing"
 									variant="link"
 									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
 									>Sanding & Finishing</Button
 								>
 								<Button
-									href="/installation"
+									data-sveltekit-reload
+									href="/repair-and-restoration"
 									variant="link"
 									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
 									>Repair & Restoration</Button
 								>
 								<Button
-									href="/installation"
+									data-sveltekit-reload
+									href="/stairs"
 									variant="link"
 									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
 									>Stairs</Button
 								>
 								<Button
+									data-sveltekit-reload
 									href="/about-us"
 									variant="link"
 									class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold capitalize leading-7"
