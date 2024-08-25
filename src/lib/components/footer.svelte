@@ -27,7 +27,7 @@
 					<img
 						width={logo?.width}
 						height={logo?.height}
-						src={directus_image_url(logo.id, '?w=40&h=40&format=auto')}
+						src={directus_image_url(logo.id, '?width=144&format=auto')}
 						alt={name}
 						class="w-32"
 					/>

@@ -46,7 +46,7 @@
 		<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
 			<img
 				class="w-36"
-				src={directus_image_url(logo.id, '?format=auto')}
+				src={directus_image_url(logo.id, '?width=144&format=auto')}
 				alt={site_settings.name + 'logo'}
 				height={logo?.height}
 				width={logo?.width}
