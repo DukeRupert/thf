@@ -22,7 +22,7 @@
 				{#each services as service}
 					<div class="group flex flex-col">
 						<dt class="text-base font-semibold leading-7 text-foreground">
-							<div class="mb-6 flex w-full items-center justify-center rounded-lg bg-primary">
+							<div class="mb-6 flex w-full items-center justify-center rounded-lg bg-background">
 								<img
 									class="obejct-cover w-46 h-96 rounded-xl shadow-xl ring-1 ring-gray-400/10"
 									src={directus_image_url(service.image.id, '?height=600&format=auto')}

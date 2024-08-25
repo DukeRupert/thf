@@ -43,7 +43,7 @@
 						<img
 							width={logo?.width}
 							height={logo?.height}
-							src={directus_image_url(logo.id, '?width=40&height=40&format=auto')}
+							src={directus_image_url(logo.id, '?width=144&format=auto')}
 							alt={name}
 							class="w-16 object-contain lg:w-24"
 						/>
