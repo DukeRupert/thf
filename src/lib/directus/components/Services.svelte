@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Item } from '../types/block_services';
 	import { Button } from '$lib/components/ui/button/index';
+	import { directus_image_url } from '../image_utils';
 
 	export let data: Item;
 	const { headline, description, services } = data;
@@ -17,16 +18,19 @@
 			</p>
 		</div>
 		<div class="max-aw-2xl mx-auto mt-16 sm:mt-20 lg:mt-24 lg:max-w-none">
-			<dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+			<dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
 				{#each services as service}
 					<div class="group flex flex-col">
 						<dt class="text-base font-semibold leading-7 text-foreground">
-							<div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-								<span
-									class="material-symbols-outlined h-6 w-6 text-primary-foreground group-hover:animate-pulse"
-								>
-									{service.icon}
-								</span>
+							<div class="mb-6 flex w-full items-center justify-center rounded-lg bg-primary">
+								<img
+									class="obejct-cover w-46 h-96 rounded-xl shadow-xl ring-1 ring-gray-400/10"
+									src={directus_image_url(service.image.id, '?height=600&format=auto')}
+									alt={services.image?.description ?? 'Traver hardwood floors project'}
+									height={service.image.height}
+									width={service.image.width}
+									load="lazy"
+								/>
 							</div>
 							{service.title}
 						</dt>

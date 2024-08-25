@@ -11,9 +11,18 @@ export interface Item {
 }
 
 export interface Service {
+	id: string;
 	title: string;
-	icon: string;
 	description: string;
 	action_label: string;
 	action_url: string;
+	services_id: string;
+	image: Image;
+}
+
+export interface Image {
+	id: string;
+	height: number;
+	description?: string;
+	width: number;
 }

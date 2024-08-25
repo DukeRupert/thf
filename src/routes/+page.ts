@@ -23,6 +23,8 @@ export const load = (async () => {
 							item: [
 								'*',
 								'logos.*',
+								{ services: ['*', { image: ['id', 'description', 'height', 'width'] }] },
+
 								{
 									features: [
 										'headline',
