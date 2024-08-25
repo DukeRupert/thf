@@ -40,6 +40,13 @@
 		/></noscript
 	>
 	<!-- End Meta Pixel Code -->
+	<!-- Plausible Code -->
+	<script
+		defer
+		data-domain="traverhardwoodfloors.com"
+		src="https://plausible.angmar.dev/js/script.js"
+	></script>
+	<!-- End Plausible Code -->
 </svelte:head>
 
 <!-- Keep an eye on light/dark mode preference -->
