@@ -7,7 +7,7 @@
 	const { headline, description, services } = data;
 </script>
 
-<div class="bg-background py-24 sm:py-32">
+<div id="services" class="bg-background py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:mx-0">
 			<h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -22,17 +22,16 @@
 				{#each services as service}
 					<div class="group flex flex-col">
 						<dt class="text-base font-semibold leading-7 text-foreground">
-							<div class="mb-6 flex w-full items-center justify-center rounded-lg bg-background">
-								<img
-									class="obejct-cover w-46 h-96 rounded-xl shadow-xl ring-1 ring-gray-400/10"
-									src={directus_image_url(service.image.id, '?height=600&format=auto')}
-									alt={services.image?.description ?? 'Traver hardwood floors project'}
-									height={service.image.height}
-									width={service.image.width}
-									load="lazy"
-								/>
-							</div>
+							<img
+								class="mb-4 aspect-[16/9] max-h-96 w-full rounded-lg object-cover object-center"
+								src={directus_image_url(service.image.id, '?height=600&format=auto')}
+								alt={services.image?.description ?? 'Traver hardwood floors project'}
+								height={service.image.height}
+								width={service.image.width}
+								load="lazy"
+							/>
 							{service.title}
+							/>
 						</dt>
 						<dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-muted-foreground">
 							<p class="flex-auto">
