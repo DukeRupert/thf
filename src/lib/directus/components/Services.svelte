@@ -28,7 +28,7 @@
 								alt={services.image?.description ?? 'Traver hardwood floors project'}
 								height={service.image.height}
 								width={service.image.width}
-								load="lazy"
+								loading="lazy"
 							/>
 							{service.title}
 							/>
