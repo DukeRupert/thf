@@ -5,7 +5,18 @@ import { readSingleton } from '@directus/sdk';
 export const load = (async ({ fetch }) => {
 	const res = await client.request(
 		readSingleton('site_settings', {
-			fields: ['*', { logo: ['id', 'description', 'height', 'width'] }]
+			fields: [
+				'*',
+				{ logo: ['id', 'description', 'height', 'width'] },
+				{
+					socials: [
+						'name',
+						'url',
+						{ logo: ['id', 'description', 'height', 'width'] },
+						{ logo_dark: ['id', 'description', 'height', 'width'] }
+					]
+				}
+			]
 		})
 	);
 

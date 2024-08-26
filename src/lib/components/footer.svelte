@@ -38,47 +38,33 @@
 				</p>
 				<div class="flex space-x-6">
 					{#if socials && socials.length > 0}
-						{#each socials as { name, url }}
-							<span class="sr-only">{name}</span>
-							{#if name.toLowerCase() === 'facebook'}
-								<Button href={url} size="icon" variant="ghost">
-									<img
-										src={directus_image_url(
-											$mode === 'light' ? facebook_logo_id_light : facebook_logo_id_dark,
-											'?format=auto&h=32'
-										)}
-										alt="facebook logo"
-										height="32"
-										class="h-8 w-auto"
-									/>
-								</Button>
-							{:else if name.toLowerCase() === 'nextdoor'}
+						{#each socials as { name, url, logo, logo_dark }}
+							{#if logo.width > logo.height * 2}
+								<span class="sr-only">{name}</span>
 								<Button href={url} size="default" variant="ghost">
 									<img
 										src={directus_image_url(
-											$mode === 'light' ? nextdoor_logo_light : nextdoor_logo_dark,
+											$mode === 'light' ? logo.id : logo_dark.id,
 											'?format=auto&h=32'
 										)}
-										alt="nextdoor logo"
-										height="32"
-										class="h-8 w-auto"
-									/>
-								</Button>
-							{:else if name.toLowerCase() === 'instagram'}
-								<Button href={url} size="icon" variant="ghost"
-									><img
-										src={directus_image_url(
-											$mode === 'light' ? instagram_logo_light : instagram_logo_dark,
-											'?format=auto&h=32'
-										)}
-										alt="instagram logo"
-										height="30"
+										alt={logo.description + ' logo'}
+										height={logo.height}
+										width={logo.width}
 										class="h-8 w-auto"
 									/>
 								</Button>
 							{:else}
 								<Button href={url} size="icon" variant="ghost">
-									<ExternalLink class="h-5 w-5" />
+									<img
+										src={directus_image_url(
+											$mode === 'light' ? logo.id : logo_dark.id,
+											'?format=auto&h=32'
+										)}
+										alt={(logo?.description ?? 'social media') + ' logo'}
+										height={logo.height}
+										width={logo.width}
+										class="h-8 w-auto"
+									/>
 								</Button>
 							{/if}
 						{/each}
