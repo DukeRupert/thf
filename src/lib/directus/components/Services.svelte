@@ -31,7 +31,6 @@
 								loading="lazy"
 							/>
 							{service.title}
-							/>
 						</dt>
 						<dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-muted-foreground">
 							<p class="flex-auto">

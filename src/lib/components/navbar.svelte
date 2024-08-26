@@ -111,7 +111,7 @@
 		<div class="flex space-x-4 lg:flex lg:flex-1 lg:justify-end">
 			<Lightswitch />
 			<!-- Mobile menu, show/hide based on menu open state. -->
-			<div class="lg:hidden" role="dialog" aria-modal="true">
+			<div class="lg:hidden" role="dialog" aria-modal="true" aria-label="navigation">
 				<Sheet.Root bind:open={is_mobile_open}>
 					<Sheet.Trigger asChild let:builder>
 						<Button builders={[builder]} size="icon" variant="outline">
