@@ -152,10 +152,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-			<p class="text-xs leading-5 text-gray-500">
+		<div
+			class="mt-16 border-t border-gray-900/10 pt-8 text-xs leading-5 text-muted-foreground sm:mt-20 lg:mt-24"
+		>
+			<p class="">
 				&copy; {current_date.getFullYear()}
 				{name}. All rights reserved.
+			</p>
+			<p>
+				Built by <a href="https://fireflysoftware.dev" class="text-foreground">Firefly Software</a>
 			</p>
 		</div>
 	</div>
