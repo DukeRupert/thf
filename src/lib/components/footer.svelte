@@ -160,7 +160,10 @@
 				{name}. All rights reserved.
 			</p>
 			<p>
-				Built by <a href="https://fireflysoftware.dev" class="text-foreground">Firefly Software</a>
+				Built by <a
+					href="https://fireflysoftware.dev"
+					class="text-blue-600 text-foreground dark:text-blue-400">Firefly Software</a
+				>
 			</p>
 		</div>
 	</div>
