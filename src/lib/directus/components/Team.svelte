@@ -2,22 +2,21 @@
 	import { PUBLIC_DIRECTUS_ENDPOINT } from '$env/static/public';
 	import type { Team_Data } from '$lib/directus/types/block_team';
 	export let data: Team_Data;
-	const { headline, description, members } = data;
 </script>
 
 <div id="team" class="py-24 md:py-32 lg:py-40">
 	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
 		<div class="mx-auto max-w-2xl lg:mx-0">
 			<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-				{headline}
+				{data?.headline}
 			</h2>
-			<p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">{description}</p>
+			<p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">{data?.description}</p>
 		</div>
 		<ul
 			role="list"
 			class="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-2"
 		>
-			{#each members as { name, title, description, image }}
+			{#each data?.members as { name, title, description, image }}
 				<li>
 					<img
 						class="aspect-[3/2] w-full rounded-2xl object-cover"

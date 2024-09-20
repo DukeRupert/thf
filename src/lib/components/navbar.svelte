@@ -63,7 +63,6 @@
 					<DropdownMenu.Group>
 						<DropdownMenu.Item
 							><Button
-								data-sveltekit-reload
 								href="/installation"
 								variant="link"
 								class="capitalize text-primary-foreground dark:text-primary">Installation</Button
@@ -71,7 +70,6 @@
 						>
 						<DropdownMenu.Item
 							><Button
-								data-sveltekit-reload
 								href="/sanding-and-finishing"
 								variant="link"
 								class="capitalize text-primary-foreground dark:text-primary"
@@ -80,7 +78,6 @@
 						>
 						<DropdownMenu.Item
 							><Button
-								data-sveltekit-reload
 								href="/repair-and-restoration"
 								variant="link"
 								class="capitalize text-primary-foreground dark:text-primary"
@@ -89,7 +86,6 @@
 						>
 						<DropdownMenu.Item
 							><Button
-								data-sveltekit-reload
 								href="/stairs"
 								variant="link"
 								class="capitalize text-primary-foreground dark:text-primary">Stairs</Button

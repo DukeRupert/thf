@@ -3,7 +3,6 @@
 	import { directus_image_url } from '../image_utils';
 
 	export let data: Item;
-	const { eyebrow, headline, reviews } = data;
 </script>
 
 <div class="bg-background py-24 sm:py-32">
@@ -12,15 +11,15 @@
 			<h2
 				class="text-lg font-semibold leading-8 tracking-tight text-primary-foreground dark:text-primary"
 			>
-				{eyebrow ?? 'Reviews'}
+				{data?.eyebrow ?? 'Reviews'}
 			</h2>
 			<p class="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-				{headline ?? 'We have worked with so many amazing people'}
+				{data?.headline ?? 'We have worked with so many amazing people'}
 			</p>
 		</div>
 		<div class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
 			<div class="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
-				{#each reviews as review}
+				{#each data?.reviews as review}
 					<div class="pt-8 sm:inline-block sm:w-full sm:px-4">
 						<figure class="rounded-2xl bg-card p-8 text-sm leading-6">
 							<blockquote class="text-card-foreground">

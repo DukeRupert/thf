@@ -6,10 +6,7 @@
 	import Button from './Button.svelte';
 	export let data: Hero_Data;
 	export let site_settings: Site_Settings;
-	const { headline, content, buttons, image } = data;
-	const { id, description: alt, height, width } = image;
-	const { logo } = site_settings;
-	const img_src = PUBLIC_DIRECTUS_ENDPOINT + '/assets/' + id;
+	$: img_src = PUBLIC_DIRECTUS_ENDPOINT + '/assets/' + data.image.id;
 </script>
 
 <div class="relative isolate overflow-hidden bg-background">
@@ -46,21 +43,21 @@
 		<div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
 			<img
 				class="w-36"
-				src={directus_image_url(logo.id, '?width=240&format=auto')}
+				src={directus_image_url(site_settings.logo.id, '?width=240&format=auto')}
 				alt={site_settings.name + 'logo'}
-				height={logo?.height}
-				width={logo?.width}
+				height={site_settings.logo?.height}
+				width={site_settings.logo?.width}
 				loading="eager"
 			/>
 			<h1
 				class="mt-10 text-4xl font-bold tracking-tight text-foreground dark:text-white sm:text-6xl"
 			>
-				{headline}
+				{data.headline}
 			</h1>
-			<div class="mt-6 text-lg leading-8 text-muted-foreground">{content}</div>
+			<div class="mt-6 text-lg leading-8 text-muted-foreground">{data.content}</div>
 			<div class="mt-10 flex items-center gap-x-6">
-				{#if buttons && buttons.length > 0}
-					{#each buttons as { label, variant, href }}
+				{#if data.buttons && data.buttons.length > 0}
+					{#each data.buttons as { label, variant, href }}
 						<Button {label} {href} {variant} />
 					{/each}
 				{/if}
@@ -70,24 +67,26 @@
 			class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32"
 		>
 			<div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-				<div class="rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
-					<img
-						class="aspect-[3/2] h-auto w-full rounded-md object-cover shadow-2xl ring-1 ring-gray-900/10 lg:aspect-[2/3] lg:max-h-[56rem]"
-						src={directus_image_url(image.id, '?format=auto')}
-						srcset="{img_src + '?width=320'} 320w, {img_src + '?width=480'} 480w, {img_src +
-							'?width=800'} 800w, {img_src + '?width=1200'} 1200w,{img_src +
-							'?width=1600'} 1600w, {img_src + '?width=2000'} 2000w"
-						sizes="(max-width: 320px) 280px,
+				{#if data.image}
+					<div class="rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
+						<img
+							class="aspect-[3/2] h-auto w-full rounded-md object-cover shadow-2xl ring-1 ring-gray-900/10 lg:aspect-[2/3] lg:max-h-[56rem]"
+							src={directus_image_url(data.image.id, '?format=auto')}
+							srcset="{img_src + '?width=320'} 320w, {img_src + '?width=480'} 480w, {img_src +
+								'?width=800'} 800w, {img_src + '?width=1200'} 1200w,{img_src +
+								'?width=1600'} 1600w, {img_src + '?width=2000'} 2000w"
+							sizes="(max-width: 320px) 280px,
                                 (max-width: 480px) 440px,
                                 (max-width: 800px) 760px,
                                 (max-width: 1200px) 1000px,
                                 100vw"
-						alt={alt || 'Fixme'}
-						{width}
-						{height}
-						loading="eager"
-					/>
-				</div>
+							alt={data.image?.description ?? ''}
+							width={data.image?.width}
+							height={data.image?.height}
+							loading="eager"
+						/>
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>

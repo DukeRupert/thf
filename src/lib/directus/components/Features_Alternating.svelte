@@ -3,22 +3,21 @@
 	import { directus_image_url } from '../image_utils';
 
 	export let data: Item;
-	const { headline, description, features } = data;
 </script>
 
 <div class="bg-background">
 	<div class="mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
 		<div class="mx-auto max-w-3xl text-center">
 			<h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-				{headline}
+				{data.headline}
 			</h2>
 			<p class="mt-4 text-muted-foreground">
-				{description}
+				{data.description}
 			</p>
 		</div>
 
 		<div class="mt-16 space-y-16">
-			{#each features as feature, index}
+			{#each data.features as feature, index}
 				{#if index % 2 == 0}
 					<div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-8">
 						<div class="mt-6 lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:mt-0 xl:col-span-4">

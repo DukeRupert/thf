@@ -3,7 +3,6 @@
 	import { directus_image_url } from '../image_utils';
 
 	export let data: Item;
-	const { headline, gallery } = data;
 
 	// function split_array(arr: Gallery[], chunk_size = 4) {
 	// 	const result = [];
@@ -17,12 +16,12 @@
 </script>
 
 <div class="mx-auto max-w-7xl px-6 lg:px-8">
-	{#if headline}
-		<h2 class="my-4 text-2xl">{headline}</h2>
+	{#if data.headline}
+		<h2 class="my-4 text-2xl">{data.headline}</h2>
 	{/if}
 	<div id={'headline' + ' gallery'}>
 		<div class="columns-2 gap-8 md:columns-3">
-			{#each gallery as { caption, image }}
+			{#each data.gallery as { caption, image }}
 				<figure class="group relative">
 					<img
 						class="mb-6 w-full group-hover:brightness-50 group-active:brightness-50"
